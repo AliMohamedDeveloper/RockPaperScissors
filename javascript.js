@@ -20,45 +20,59 @@ function getHumanChoice() {
     return Choice;
 }
 
-let humanScore = 0;
-let computerScore = 0;
 
 
-function playRound(humanChoice, computerChoice) {
+function playGame() {
 
-    let humanChoiceLC = humanChoice.toLowerCase();
     let humanScore = 0;
-    let = 0;
-    if (humanChoice == 'rock' && computerChoice == 'paper') {
-        computerScore += 1;
+    let computerScore = 0;
+
+
+    function playRound(humanChoice, computerChoice) {
+
+        let humanChoiceLC = humanChoice.toLowerCase();
+        let humanScore = 0;
+        let = 0;
+        if (humanChoice == 'rock' && computerChoice == 'paper') {
+            computerScore += 1;
+        }
+
+        else if (humanChoice == 'rock' && computerChoice == 'scissors') {
+            humanScore += 1;
+        }
+
+        else if (computerChoice == 'rock' && humanChoice == 'paper') {
+            humanScore += 1;
+        }
+
+        else if (computerChoice == 'rock' && humanChoice == 'scissors') {
+            computerScore += 1;
+        }
+        else {
+            console.log("Draw");
+        }
+
+        console.log("human score " + humanScore);
+        console.log("Computer score " + computerScore);
     }
 
-    else if (humanChoice == 'rock' && computerChoice == 'scissors') {
-        humanScore += 1;
+    for (let i = 0; i < 5; i++) {
+
+        let GCC = (getComputerChoice());
+        let GHC = (getHumanChoice());
+
+
+        // console.log("Human Choice is " + GHC);
+        // console.log("Computer Score is " + GCC);
+
+        playRound(GHC, GCC);
+
     }
 
-    else if (computerChoice == 'rock' && humanChoice == 'paper') {
-        humanScore += 1;
-    }
-
-    else if (computerChoice == 'rock' && humanChoice == 'scissors') {
-        computerScore += 1;
-    }
-    else {
-        console.log("Draw");
-    }
-
-    console.log("human score " + humanScore);
-    console.log("Computer score " + computerScore);
 }
 
 
-let GCC = (getComputerChoice());
-let GHC = (getHumanChoice());
+playGame();
 
 
-console.log("Human Choice is " + GHC);
-console.log("Computer Score is " + GCC);
-
-playRound(GHC, GCC);
 
