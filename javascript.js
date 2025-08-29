@@ -20,40 +20,41 @@ function getHumanChoice() {
     return Choice;
 }
 
-
-
 function playGame() {
 
     let humanScore = 0;
     let computerScore = 0;
 
-
     function playRound(humanChoice, computerChoice) {
 
         let humanChoiceLC = humanChoice.toLowerCase();
-        let humanScore = 0;
-        let = 0;
-        if (humanChoice == 'rock' && computerChoice == 'paper') {
+
+        if (humanChoiceLC == 'rock' && computerChoice == 'paper') {
             computerScore += 1;
         }
 
-        else if (humanChoice == 'rock' && computerChoice == 'scissors') {
+        else if (humanChoiceLC == 'rock' && computerChoice == 'scissors') {
             humanScore += 1;
         }
 
-        else if (computerChoice == 'rock' && humanChoice == 'paper') {
+        else if (humanChoiceLC == 'paper' && computerChoice == 'rock') {
             humanScore += 1;
         }
 
-        else if (computerChoice == 'rock' && humanChoice == 'scissors') {
+        else if (humanChoiceLC == 'paper' && computerChoice == 'scissors') {
             computerScore += 1;
+        }
+
+        else if (humanChoiceLC == 'scissors' && computerChoice == 'rock') {
+            computerScore += 1;
+        }
+
+        else if (humanChoiceLC == 'scissors' && computerChoice == 'paper') {
+            humanScore += 1;
         }
         else {
             console.log("Draw");
         }
-
-        console.log("human score " + humanScore);
-        console.log("Computer score " + computerScore);
     }
 
     for (let i = 0; i < 5; i++) {
@@ -61,18 +62,12 @@ function playGame() {
         let GCC = (getComputerChoice());
         let GHC = (getHumanChoice());
 
-
-        // console.log("Human Choice is " + GHC);
-        // console.log("Computer Score is " + GCC);
-
         playRound(GHC, GCC);
 
     }
 
+    console.log("Final Score - Human: " + humanScore + " Computer: " + computerScore);
+
 }
 
-
 playGame();
-
-
-
